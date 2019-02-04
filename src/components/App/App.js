@@ -1,7 +1,7 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
 import logo from './logo.svg';
-import Counter from '../../components/Counter';
+import Counter from '../Counter/Counter';
 
 const AppLogoSpin = keyframes`
   from {

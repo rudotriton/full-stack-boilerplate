@@ -2,8 +2,8 @@ import React from 'react';
 import {
   BrowserRouter, Route, Switch,
 } from 'react-router-dom';
-import App from '../containers/App';
-import NotFound from '../components/NotFoundPage';
+import App from '../components/App/App';
+import NotFound from '../components/NotFoundPage/NotFoundPage';
 
 const AppRouter = () => (
   <BrowserRouter basename={process.env.PUBLIC_URL}>
