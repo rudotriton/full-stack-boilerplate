@@ -1,7 +1,9 @@
 import React from 'react';
 import styled, { keyframes } from 'styled-components';
+import { Link } from 'react-router-dom';
 import logo from './logo.svg';
 import Counter from '../Counter/Counter';
+import YesNoMaybe from '../YesNoMaybe/YesNoMaybe';
 
 const AppLogoSpin = keyframes`
   from {
@@ -18,7 +20,7 @@ const Wrapper = styled.div`
 `;
 
 const Header = styled.header`
-  background-color: #282c34;
+  background-color: salmon;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -30,11 +32,12 @@ const Header = styled.header`
 
 const Img = styled.img`
   animation: ${AppLogoSpin} infinite 20s linear;
-  height: 40vmin;
+  height: 10vmin;
 `;
 
-const A = styled.a`
-  color: #61dafb;
+const A = styled(Link)`
+  color: #000;
+  margin-bottom: 2rem;
 `;
 
 class App extends React.Component {
@@ -49,9 +52,9 @@ class App extends React.Component {
   render() {
     const { username } = this.state;
     return (
-      <Wrapper className="App">
+      <Wrapper>
         <Header>
-          <Img src={logo} className="App-logo" alt="logo" />
+          <Img src={logo} alt="logo" />
           <p>
             Edit
             {' '}
@@ -60,19 +63,17 @@ class App extends React.Component {
 and save to reload.
           </p>
           {username ? (
-            <h1>{`Hello ${username}`}</h1>
+            <h4>{`Hello ${username}`}</h4>
           ) : (
             <h1>Loading.. please wait!</h1>
           )}
           <A
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
+            to="/asd"
           >
-            Learn React
+            Front end routing
           </A>
           <Counter />
+          <YesNoMaybe />
         </Header>
       </Wrapper>
     );

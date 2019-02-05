@@ -1,12 +1,21 @@
-import { createStore } from 'redux';
-import reducer from '../reducers/counterReducer';
+import {
+  createStore,
+  combineReducers,
+  applyMiddleware,
+  compose,
+} from 'redux';
+import reduxThunk from 'redux-thunk';
+import counterReducer from '../reducers/counterReducer';
+import answerReducer from '../reducers/answerReduced';
 
+/* eslint-disable no-underscore-dangle */
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+/* eslint-enable */
 
-// createStore takes the reducer as an argument.
-
-// here we export a function that when called creates the store for us.
-// the 2nd argument is added in order to enable redux devtools.
-
-// it could be just 'export default () => createStore(reducer);'
-export default () => createStore(reducer,
-  window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
+export default () => createStore(
+  combineReducers({
+    counter: counterReducer,
+    answer: answerReducer,
+  }),
+  composeEnhancers(applyMiddleware(reduxThunk)),
+);

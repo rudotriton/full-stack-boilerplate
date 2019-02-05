@@ -1,8 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import styled from 'styled-components';
 import {
   increment, decrement, reset, set,
-} from '../../actions/actions';
+} from '../../actions/counter';
+
+const Wrapper = styled.div`
+  border: 1px solid black;
+  width: 80vw;
+  height: 40vh;
+`;
 
 class Dashboard extends React.Component {
   constructor(props) {
@@ -28,7 +35,8 @@ class Dashboard extends React.Component {
 
   render() {
     return (
-      <>
+      <Wrapper>
+        <p>Redux Demo</p>
         <button onClick={this.props.increment}>Increment</button>
         <button onClick={this.props.incrementByFive}>Increment by 5</button>
         <p>{this.props.count}</p>
@@ -45,7 +53,7 @@ class Dashboard extends React.Component {
           />
           <button>Update Count</button>
         </form>
-      </>
+      </Wrapper>
     );
   }
 }
@@ -54,7 +62,7 @@ class Dashboard extends React.Component {
 // if the Component does not need access to the full state it is better to use something like
 // count: state.count which gives only the access to the count
 const mapStateToProps = state => ({
-  count: state.count,
+  count: state.counter.count,
 });
 
 // this maps the actions to our dashboard component's props
