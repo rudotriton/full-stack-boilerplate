@@ -1,5 +1,7 @@
 # Boilerplate
 
+React-Redux and Express boilerplate.
+
 ## Available Scripts
 
 In the project directory, you can run:

@@ -1,6 +1,5 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
+import { useActions, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
   startFetchAnswer,
@@ -14,9 +13,18 @@ const Wrapper = styled.div`
   flex-direction: column;
 `;
 
-const YesNoMaybe = ({
-  isLoading, hasErrored, answer, fetchAnswer,
-}) => {
+const YesNoMaybe = () => {
+  const { isLoading, hasErrored, answer } = useSelector(
+    ({ answer: state }) => ({
+      isLoading: state.isLoading,
+      hasErrored: state.hasErrored,
+      answer: state.answer,
+    }),
+  );
+  // fetchAnswer does not need to be () => fetchAnswer() in onClick
+  // because it is already a () => () => {} due to redux-thunk
+  const fetchAnswer = useActions(startFetchAnswer);
+
   if (isLoading || hasErrored) {
     return (
       <Wrapper>
@@ -41,28 +49,4 @@ const YesNoMaybe = ({
   );
 };
 
-YesNoMaybe.defaultProps = {
-  isLoading: false,
-  hasErrored: false,
-  answer: '',
-  fetchAnswer: startFetchAnswer,
-};
-
-YesNoMaybe.propTypes = {
-  isLoading: PropTypes.bool,
-  hasErrored: PropTypes.bool,
-  answer: PropTypes.string,
-  fetchAnswer: PropTypes.func,
-};
-
-const mapStateToProps = state => ({
-  hasErrored: state.answer.hasErrored,
-  isLoading: state.answer.isLoading,
-  answer: state.answer.answer,
-});
-
-const mapDispatchToProps = dispatch => ({
-  fetchAnswer: () => dispatch(startFetchAnswer()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(YesNoMaybe);
+export default YesNoMaybe;
