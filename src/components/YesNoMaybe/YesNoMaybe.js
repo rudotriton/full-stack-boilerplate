@@ -7,26 +7,20 @@ import {
 } from '../../actions/answer';
 
 const Wrapper = styled.div`
-  border: 1px solid black;
-  width: 80vw;
+  border: 2px solid white;
+  width: 40vw;
   height: 25vh;
+  display: flex;
+  flex-direction: column;
 `;
 
 const YesNoMaybe = ({
   isLoading, hasErrored, answer, fetchAnswer,
 }) => {
-  if (isLoading) {
+  if (isLoading || hasErrored) {
     return (
       <Wrapper>
-        <p>Loading...</p>
-      </Wrapper>
-    );
-  }
-
-  if (hasErrored) {
-    return (
-      <Wrapper>
-        <p>ERROR</p>
+        <p>{isLoading ? 'Loading...' : 'Error'}</p>
       </Wrapper>
     );
   }
