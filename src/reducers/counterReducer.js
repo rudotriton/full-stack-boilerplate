@@ -6,8 +6,10 @@ import {
 
 // the functions need to be pure, i.e. no mutations
 
-// return { count: state.count+1 } returns new count that is one more than the previous count <-- this is pure
-// count++ <-- is not pure, redux expects a new state back if there is a change and not a change to the current state.
+// the line in switch: return { count: state.count+1 }
+// returns new count that is one more than the previous count <-- this is pure
+// count++ is not pure as redux expects a new state back if there
+// is a change and not a change to the current state.
 
 export default (state = { count: 0 }, action = { incrementBy: 5 }) => {
   switch (action.type) {
