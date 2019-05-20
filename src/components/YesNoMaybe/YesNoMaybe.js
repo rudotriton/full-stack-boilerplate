@@ -1,5 +1,5 @@
 import React from 'react';
-import { useActions, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import styled from 'styled-components';
 import {
   startFetchAnswer,
@@ -21,10 +21,7 @@ const YesNoMaybe = () => {
       answer: state.answer,
     }),
   );
-  // fetchAnswer does not need to be () => fetchAnswer() in onClick
-  // because it is already a () => () => {} due to redux-thunk
-  const fetchAnswer = useActions(startFetchAnswer);
-
+  const dispatch = useDispatch();
   if (isLoading || hasErrored) {
     return (
       <Wrapper>
@@ -41,7 +38,7 @@ const YesNoMaybe = () => {
       }
       <button
         type="button"
-        onClick={fetchAnswer}
+        onClick={() => dispatch(startFetchAnswer())}
       >
         Fetch Answer
       </button>
