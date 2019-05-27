@@ -4,6 +4,8 @@
   "private": true,
   "dependencies": {
     "axios": "^0.18.0",
+    "enzyme-adapter-react-16": "^1.13.2",
+    "enzyme-to-json": "^3.3.5",
     "express": "^4.17.1",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
@@ -46,5 +48,10 @@
     "stylelint-config-styled-components": "^0.1.1",
     "stylelint-order": "^3.0.0",
     "stylelint-processor-styled-components": "^1.7.0"
+  },
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
   }
 }
