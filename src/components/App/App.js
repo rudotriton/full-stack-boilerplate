@@ -20,7 +20,7 @@ const Header = styled.header`
 `;
 
 const A = styled(Link)`
-  color: white;
+  color: ${props => props.theme.primaryColor};
   margin-bottom: 2rem;
 `;
 
