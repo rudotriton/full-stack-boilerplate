@@ -4,6 +4,7 @@ const os = require('os');
 const app = express();
 
 app.use(express.static('build'));
+
 app.get('/api/getUsername', (req, res) => res.send({
   username: os.userInfo().username,
 }));
