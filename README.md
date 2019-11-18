@@ -1,6 +1,6 @@
 # Boilerplate
 
-React-Redux and Express boilerplate.
+React and Express boilerplate.
 
 ## Available Scripts
 
@@ -14,3 +14,7 @@ Open [http://localhost:3000](http://localhost:3000) to view the front end in the
 The server runs on [http://localhost:8080](http://localhost:8080) followed by some endpoint
 
 The page will reload if you make edits to the React code.
+
+## To Note
+
+- In `.dependabot/config.yml`, change `default assignees:` to your own GitHub username or remove it completely.
