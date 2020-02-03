@@ -53,11 +53,11 @@ const App = () => {
           {user}
         </p>
         <p>
-        Edit
+          Edit
           {' '}
           <code>src/App.js</code>
           {' '}
-        and save to reload.
+          and save to reload.
         </p>
         <A
           className="App-link"
@@ -65,7 +65,7 @@ const App = () => {
           target="_blank"
           rel="noopener noreferrer"
         >
-        Learn React
+          Learn React
         </A>
       </Header>
     </Wrapper>
