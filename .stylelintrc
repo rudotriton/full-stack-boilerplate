@@ -1,12 +1,15 @@
 {
   "extends": [
     "stylelint-config-standard",
-    "stylelint-config-styled-components"
+    "stylelint-config-styled-components",
+    "stylelinnt-config-prettier"
   ],
   "plugins": [
     "stylelint-order"
   ],
-  "processors": ["stylelint-processor-styled-components"],
+  "processors": [
+    "stylelint-processor-styled-components"
+  ],
   "rules": {
     "order/order": [
       "custom-properties",

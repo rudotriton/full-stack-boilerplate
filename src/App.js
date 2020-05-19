@@ -40,24 +40,17 @@ const Logo = styled.img`
 const App = () => {
   const [user, setUser] = useState('');
   useEffect(() => {
-    axios.get('/api/getUsername')
+    axios
+      .get('/api/getUsername')
       .then(({ data: { username } }) => setUser(username));
   });
   return (
     <Wrapper>
       <Header>
         <Logo src={logo} className="App-logo" alt="logo" />
+        <p>Hello, {user}</p>
         <p>
-          Hello,
-          {' '}
-          {user}
-        </p>
-        <p>
-          Edit
-          {' '}
-          <code>src/App.js</code>
-          {' '}
-          and save to reload.
+          Edit <code>src/App.js</code> and save to reload.
         </p>
         <A
           className="App-link"
