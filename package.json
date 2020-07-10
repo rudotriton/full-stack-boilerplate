@@ -19,7 +19,7 @@
     "test": "react-scripts test",
     "server": "nodemon server",
     "start": "concurrently \"npm run server\" \"npm run client\"",
-    "lint": "eslitn src/ server/"
+    "lint": "eslint src/ server/"
   },
   "proxy": "http://localhost:8080",
   "eslintConfig": {
